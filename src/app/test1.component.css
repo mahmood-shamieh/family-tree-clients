@@ -1,0 +1,19 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+}
+
+#bottom-card-section {
+  background-color: #212529;
+  text-align: center;
+  /* box-shadow: 5px 5px 10px 10px gray; */
+}
+#bottom-card-section:hover {
+  text-align: center;
+  box-shadow: 5px 5px 10px 10px #205770;
+}

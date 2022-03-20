@@ -1,0 +1,34 @@
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h2{
+  font-size: xx-large;
+}
+h3{
+  font-size: x-large;
+}
+
+
+#read-more-button{
+  background-color: #212529;
+  border: #ffffff;
+  padding: 10px;
+  margin-left: 100px;
+  /* font-family: 'Courier New', Courier, monospace; */
+}
+#read-more-button:hover{
+  background-color: #205770;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+#image-header{
+  padding: 15px ;
+}
+#header-ground{
+  background-image: url("/assets/53776.jpg");
+  background-size: cover;
+  object-fit: cover;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* height: 100% */
+}

@@ -1,0 +1,33 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  font-size: 20px;
+}
+h1{
+  font-size: 30px;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+
+  color: white !important;
+  color: white !important;
+  border-color: white !important;
+ }
+
+ ::ng-deep.mat-form-field-underline {
+
+  background-color: white !important;
+  color: white !important;  border-color: white !important;
+
+}
+
+::ng-deep.mat-form-field-ripple {
+
+ background-color: white !important;;  border-color: white !important;
+
+}

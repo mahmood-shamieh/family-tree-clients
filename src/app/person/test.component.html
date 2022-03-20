@@ -1,0 +1,103 @@
+<mat-card class="col my-1 mx-1" style="border-radius: 20px;height: min-content;text-align: center;margin: auto;box-shadow: 0px -1px 10px 1px grey">
+  <mat-card>
+    <div class="row" style="text-align: center; align-items: center;">
+      <img src={{father.pic}} class="rounded-circle" alt="" style="width: 30%;height: 30%; box-shadow:  2px 2px 5px 5px gray ;margin-right: 15px;">
+      <div class="col m-auto">
+        <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">الاسم : {{father.name}}</h1>
+        <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">العمل : {{father.job}}</h3>
+        <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">اسم الأم : {{father.mother!.name}}</h4>
+        <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">اسم الأب : {{father.father!.name}}</h4>
+      </div>
+    </div>
+  </mat-card>
+  <mat-accordion class="col m-auto" style="text-align: center; justify-content: center;" >
+    <mat-expansion-panel >
+      <mat-expansion-panel-header>
+        <mat-panel-title
+          style="text-align: center;margin: auto;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+          إضغط لإظهار أولاد {{father.name}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="row" style="text-align: center;">
+        <div class="container" *ngFor="let child of father.children" style="text-align: center;margin: auto;">
+          <person-card class="col-md-4" *ngIf="child.children== null" [person]="child"></person-card>
+          <mat-card class="col m-auto" *ngIf="child.children!=null"
+            style="border-radius: 20px;height: min-content;text-align: center;">
+            <mat-card>
+              <div class="row" style="text-align: center;align-items: center;">
+                <img src={{child.pic}} class="rounded-circle" alt="" style="width: 30%;height: 30%;box-shadow:  2px 2px 5px 5px gray ;margin-right: 15px;">
+                <div class="col m-auto">
+                  <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">الاسم : {{child.name}}</h1>
+                  <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">العمل : {{child.job}}</h3>
+                  <h4 *ngIf="child.mother!=null" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+                    اسم الأم : {{child.mother.name}}</h4>
+                  <h4 *ngIf="child.father!=null" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+                    اسم الأب : {{child.father.name}}</h4>
+                </div>
+              </div>
+            </mat-card>
+            <mat-accordion class="col m-auto" style="text-align: center;">
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title
+                    style="text-align: center;margin: auto;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                    إضغط لإظهار أولاد {{child.name}}
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row m-auto" style="text-align: center;">
+                  <div class="container" *ngFor="let child1 of child.children" style="text-align: center; align-items: center;">
+                    <person-card class="col-md-4 m-auto " *ngIf="child1.children== null" [person]="child1">
+                    </person-card>
+                    <mat-card *ngIf="child1.children!=null" class="col m-auto "
+                      style="border-radius: 20px;height: min-content;text-align: center;margin: auto;">
+                      <mat-card>
+                        <div class="row" style="text-align: center;align-items: center;">
+                          <img src={{child1.pic}} class="rounded-circle" alt="" style="width: 30%;height: 30%;box-shadow:  2px 2px 5px 5px gray ;margin-right: 15px;">
+                          <div class="col m-auto">
+                            <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">الاسم :
+                              {{child1.name}}</h1>
+                            <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">العمل :
+                              {{child1.job}}</h3>
+                            <h4 *ngIf="child1.mother!=null"
+                              style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">اسم الأم :
+                              {{child1.mother.name}}</h4>
+                            <h4 *ngIf="child1.father!=null"
+                              style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">اسم الأب :
+                              {{child1.father.name}}</h4>
+                          </div>
+                        </div>
+                      </mat-card>
+                      <mat-accordion class="col m-auto" style="text-align: center;">
+                        <mat-expansion-panel>
+                          <mat-expansion-panel-header>
+                            <mat-panel-title
+                              style="text-align: center;margin: auto;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                              إضغط لإظهار أولاد {{child1.name}}
+                            </mat-panel-title>
+                          </mat-expansion-panel-header>
+                          <div class="row m-auto" style="text-align: center; align-items: center;">
+                            <div class="col-md m-auto " *ngFor="let child2 of child1.children" style="text-align: center;margin: auto;align-items: center;">
+
+                                <person-card *ngIf="child2.children== null" [person]="child1"></person-card>
+
+
+                            </div>
+                          </div>
+                        </mat-expansion-panel>
+                      </mat-accordion>
+
+                    </mat-card>
+
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+
+          </mat-card>
+
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+</mat-card>

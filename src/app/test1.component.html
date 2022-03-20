@@ -1,0 +1,23 @@
+<div class="row justifey-content-center mx-1" >
+  <div class="col-lg-3 col-md-3 col-sm-12" style="text-align: center;" *ngFor="let person of persons">
+    <img (click)="goToProfilePage(person)" routerLink="test" style="width: 100%;border-radius: 10px; "
+      src={{person.pic}}
+      alt="" ngbPopover="إضغط للذهاب للصفحة الشخصية"
+      [openDelay]="300" [closeDelay]="500" triggers="mouseenter:mouseleave">
+    <mat-card (click)="goToProfilePage(person)" routerLink="test" id="bottom-card-section"  class="col "  ngbPopover="إضغط للذهاب للصفحة الشخصية"
+    [openDelay]="300" [closeDelay]="500" triggers="mouseenter:mouseleave">
+      <h3>الاسم : {{person.name!}}</h3>
+      <h3 *ngIf="person.father!=null" >اسم الأب : {{person.father.name}}</h3>
+      <h3 *ngIf="person.mother!=null">اسسم الأم : {{person.mother.name}}</h3>
+      <h3>عنوان السكن : {{person.location}}</h3>
+      <h3>تاريخ الميلاد : {{person.birthDate}}</h3>
+      <!-- <h3 *ngIf="person.deathDate!=null">تاريخ الوفاة : {{person.deathDate}}</h3> -->
+      <h3>العمل : {{person.job}}</h3>
+      <h3>الهاتف : {{person.phone}}</h3>
+      <h3>مكان الولادة : {{person.birthCity}}</h3>
+      <h3>مكان الإقامة : {{person.currentCity}}</h3>
+      <hr>
+      <h3 style="color: gray;">إضغط للمزيد من التفاصيل</h3>
+    </mat-card>
+  </div>
+</div>

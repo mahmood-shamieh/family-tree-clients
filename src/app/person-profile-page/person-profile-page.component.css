@@ -1,0 +1,13 @@
+
+
+*{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+}
+#jod-card{
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+  border-radius: 10px;
+background-color: #212529;
+}

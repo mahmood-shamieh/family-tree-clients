@@ -1,0 +1,95 @@
+<mat-card id="person-card" routerLink="test" (click)="goToProfilePage()">
+  <mat-card-content
+    style="text-align: center; align-items: center"
+  >
+    <br />
+    <h1
+      style="
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      "
+    >
+      {{ person!.name }}
+    </h1>
+    <hr />
+    <div class="container-fluid">
+      <div class="row m-a" style="position: relative; align-items: center">
+        <div
+          class="col-lg col-md ml-3"
+          style="text-align: center; padding-right: 90px"
+        >
+          <h3
+            style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+          >
+            الاسم : {{ person!.name }}
+          </h3>
+          <h3
+            style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+            *ngIf="person!.father != null"
+          >
+            اسم الأب : {{ person!.father.name }}
+          </h3>
+          <h3
+            style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+            *ngIf="person!.mother != null"
+          >
+            اسم الأم : {{ person!.mother.name }}
+          </h3>
+
+          <h3
+            style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+          >
+            تاريخ الميلاد : {{ person!.birthDate }}
+          </h3>
+          <h3
+            style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+          >
+            العنوان : {{ person!.location }}
+          </h3>
+          <!-- <h3
+            style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+            *ngIf="person!.deathDate != null"
+          >
+            تاريخ الوفاة : {{ person!.deathDate }}
+          </h3>
+          <h3
+            style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+          >
+            العمل : {{ person!.job }}
+          </h3> -->
+          <h3
+            style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+          >
+            الهاتف : {{ person!.phone }}
+          </h3>
+          <!-- <h3
+            style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+          >
+            مكان الولادة : {{ person!.birthCity }}
+          </h3>
+          <h3
+            style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+          >
+            مكان الإقامة : {{ person!.currentCity }}
+          </h3> -->
+        </div>
+        <div
+          style="
+          position: absolute;
+            display: flex;
+            width: fit-content;
+            height: fit-content;
+          "
+        >
+          <img
+            class="rounded-circle"
+            style="width: 40%; height: 40%"
+            src="{{ person!.pic }}"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <br />
+  </mat-card-content>
+</mat-card>

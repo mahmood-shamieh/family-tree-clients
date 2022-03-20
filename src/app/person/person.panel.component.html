@@ -1,0 +1,110 @@
+<mat-card id="card-style" (click)="refresh()" ngbPopover="إضغط للمزيد من المعلومات"
+[openDelay]="300" [closeDelay]="500" triggers="mouseenter:mouseleave">
+  <mat-card-content multi="false">
+    <!-- befor card clicked -->
+    <img id="card-image" src="{{ father.pic }}" alt="" *ngIf="!statue" />
+    <hr *ngIf="!statue" />
+    <h3 *ngIf="!statue">{{ father.name }}</h3>
+    <h3 *ngIf="!statue">{{ father.job }}</h3>
+    <hr *ngIf="!statue" />
+    <h1 style="color: gray; margin: auto; font-size: large" *ngIf="!statue">
+      إضغط للمزيد من التفاصيل
+    </h1>
+    <!-- when card clicked -->
+    <div
+      class="row"
+      style="
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+      "
+      *ngIf="statue"
+    >
+      <!-- father card -->
+      <div class="col-lg-5 col-md-6 col-sm-12" >
+        <mat-card class="container">
+          <mat-card-content>
+            <div>
+              <h3>{{ father.name }}</h3>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col">
+                <img
+                  style="border-radius: 20px; height: 100%; width: 100%"
+                  src="{{ father.pic }}"
+                  alt=""
+                />
+              </div>
+
+              <!-- <div style="width: 2px; background-color: gray"></div> -->
+              <div class="col">
+                <h3 *ngIf="father.mother != null">
+                  اسم الأم : {{ father.mother.name }}
+                </h3>
+                <h3 *ngIf="father.father != null">
+                  اسم الأب : {{ father.father.name }}
+                </h3>
+                <h3>العنوان : {{ father.location }}</h3>
+                <h3>تاريخ الميلاد : {{ father.birthDate }}</h3>
+                <h3 *ngIf="father.deathDate != null">
+                  تاريخ الوفاة : {{ father.deathDate }}
+                </h3>
+                <h3>العمل : {{ father.job }}</h3>
+                <!-- <h3>{{ father.phone }}</h3>
+                <h3>{{ father.birthCity }}</h3>
+                <h3>{{ father.currentCity }}</h3> -->
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <!-- mother card -->
+      <div class="col-lg-5 col-md-6 col-sm-12" >
+        <mat-card class="container">
+          <mat-card-content>
+            <div class="col"></div>
+            <div>
+              <h3>{{ mother.name }}</h3>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col">
+                <img
+                  style="border-radius: 20px; height: 100%; width: 100%"
+                  src="{{ mother.pic }}"
+                  alt=""
+                />
+              </div>
+              <!-- <div style="width: 2px; background-color: gray"></div> -->
+              <div class="col">
+                <h3 *ngIf="mother.mother != null">
+                  اسم الأم : {{ mother.mother.name }}
+                </h3>
+                <h3 *ngIf="mother.father != null">
+                  اسم الأب : {{ mother.father.name }}
+                </h3>
+                <h3>العنوان : {{ mother.location }}</h3>
+                <h3>تاريخ الميلاد : {{ mother.birthDate }}</h3>
+                <h3 *ngIf="mother.deathDate != null">
+                  تاريخ الوفاة : {{ mother.deathDate }}
+                </h3>
+                <h3>العمل : {{ mother.job }}</h3>
+                <!-- <h3>{{ mother.phone }}</h3>
+                <h3>{{ mother.birthCity }}</h3>
+                <h3>{{ mother.currentCity }}</h3> -->
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <hr *ngIf="statue" />
+    <!-- childer section -->
+    <div *ngIf="statue" class="row m-auto">
+      <div *ngFor="let child of father.children" class="col-md-4 m-auto" style="display: inline-block;">
+        <person-card [person]="child" class="col-md-4 "></person-card>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
