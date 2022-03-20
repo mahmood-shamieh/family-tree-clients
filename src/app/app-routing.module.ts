@@ -5,8 +5,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'family-tree', component: MainPageComponent },
-  { path: 'family-tree/test', component: PersonProfilePageComponent },
+  { path: '', component: MainPageComponent },
+  { path: 'test', component: PersonProfilePageComponent },
 ];
 
 @NgModule({
